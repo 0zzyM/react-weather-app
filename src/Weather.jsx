@@ -29,7 +29,7 @@ const Weather = () => {
     return(          
         <div>
             <div id="mainContainer"> 
-              <h1>Weather</h1>
+              {/*<h1>Weather</h1>*/}
               <div className="searchContainer">
                   <input type="text" placeholder="Enter a City" value={city} onChange={(e) => setCity(e.target.value)}/>
                   <img src={searchIcon} alt='' className="searchIcon" onClick={() => search(city)}/>
@@ -37,15 +37,19 @@ const Weather = () => {
               {weather.name!==undefined && (
                 <div className="resultContainer">
                     <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt="" className="weatherIcon" />
-                    <h2 className="tempratureC">
-                    {Math.round(weather.main.temp)} °C
-                    </h2>
                     <h2 className="location">
-                    {weather.name}
+                        {weather.name}
                     </h2>
-                    <p>Feels Like {weather.main.feels_like}</p>
-                    <p>Min: {Math.round(weather.main.temp_min)} --- Max: {Math.round(weather.main.temp_max)} </p>
 
+                    <div className="results">
+                        <h2 className="tempratureC">
+                            {Math.round(weather.main.temp)} °C
+                        </h2>
+                        <p className="feels-like">Feels Like {Math.round(weather.main.feels_like)} °C</p>
+                    </div>
+                    {/* 
+                    <p>Min: {Math.round(weather.main.temp_min)} --- Max: {Math.round(weather.main.temp_max)} </p>
+                    */}
                     <div className="extraResults">
                     <Droplet />
                     <p>Humidity: {weather.main.humidity}%</p>

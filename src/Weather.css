@@ -51,6 +51,11 @@
     gap: 35px;
 }
 
+.results{
+    display: flex;
+    flex-direction: column;
+    align-items: center;}
+
 .extraResults{
     display: flex;
     flex-direction: row;
