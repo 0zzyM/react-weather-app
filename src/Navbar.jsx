@@ -1,3 +1,6 @@
+import './Navbar.css'
+import { Link } from 'react-router-dom'
+
 import { useState } from "react"
 
 const Navbar = () => {
@@ -8,11 +11,11 @@ const Navbar = () => {
     return(
         <nav className="header-wrap">
             <ul className="logo-wrapper">
-                <li className="logo-item"><a href="#">weatherApp</a></li>
+                <li className="logo-item"><Link to="/" >weatherApp</Link></li>
             </ul>
             <ul className="navbar">
-                <li className="navbar-item"><a href="#">Current Weather</a></li>
-                <li className="navbar-item"><a href="#">5 Day Forecast</a></li>
+                <li className="navbar-item"><Link to="/">Current Weather</Link></li>
+                <li className="navbar-item"><Link to="fiveday">5 Day Forecast</Link></li>
                 <li className="night-mode-toggle-wrapper">
                     <p>Night Mode</p>
                     <button className={`toggle-btn ${toggled ? "toggled" : ""}`} onClick={()=> setToggled(!toggled)}>

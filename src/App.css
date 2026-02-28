@@ -1,105 +1,11 @@
-#root{
+.main-wrapper{
+  display: flex;
+  flex-direction: column;
+  width:100% ;
+}
+
+.weather-comp {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 75vh;
-}
-
-.header-wrap{
-  min-height: 60px;
-  background-color: antiquewhite;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.navbar{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: 50px;
-}
-.logo-wrapper{
-  display: flex;
-  align-items: center;
-}
-.logo-item{
-  list-style: none;
-}
-
-.navbar-item{
-  display: flex;
-  align-items: center;
-  height: 100%;
-  list-style: none;
-}
-
-.night-mode-toggle-wrapper{
-  display: flex;
-  align-items: center;
-  height: 100%;
-  list-style: none;
-  gap: 10px;
-}
-.navbar-item:hover{
-  background-color: rgb(252, 243, 232);
-}
-
-.navbar-item a{
-  text-decoration: none;
-  color: inherit;
-}
-
-.logo-wrapper{
-  padding: 20px;
-  font-weight: bold;
-  font-size: large;
-  cursor: pointer;
-}
-
-.logo-wrapper a{
-  text-decoration: none;
-  color: inherit;
-}
-
-.toggle-btn{
-  margin-right: 10px;
-  background-color: #b7b9ba;
-  border: 1px solid #aaa;
-  border-radius: 100px;
-  width: 50px;
-  height: 25px;
-  transition: background-color 0.1s ease, border-color 0.2s ease;
-  cursor: pointer;
-  box-shadow: 1px 1px 10px black;
-  position: relative;
-
-}
-
-.toggle-btn .thumb{
-  height: 20px;
-  width: 20px;
-  background-color: #fff;
-  border-radius: 100px;
-  transform: translateX(0);
-  transition: left 0.15s ease;
-  position: absolute;
-  left: 3px;
-  top: 50%;
-  transform: translateY(-50%)
-}
-
-.toggle-btn p{
-  position: relative;
-  transform: translateX(-50px);
-}
-
-
-.toggle-btn.toggled{
-  background-color: green;
-}
-
-.toggle-btn.toggled .thumb{
-  left: calc(25px);
 }
