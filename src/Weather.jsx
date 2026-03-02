@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Weather.css";
+import "./App.css";
 import searchIcon from "./assets/search.svg";
 import { Droplet, Wind } from "lucide-react";
 
@@ -24,7 +25,7 @@ const Weather = () => {
   const [weather, setWeather] = useState("");
 
   return (
-    <div>
+    <div className="weather-wrapper">
       <div id="mainContainer">
         {/*<h1>Weather</h1>*/}
         <div className="searchContainer">

@@ -1,76 +1,78 @@
-.header-wrap{
+.header-wrap {
   min-height: 60px;
-  background-color: antiquewhite;
+
+  background-color: rgba(127, 220, 251, 0.45);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.navbar{
+.navbar {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   gap: 50px;
 }
-.logo-wrapper{
+.logo-wrapper {
   display: flex;
   align-items: center;
 }
-.logo-item{
+.logo-item {
   list-style: none;
 }
 
-.navbar-item{
+.navbar-item {
   display: flex;
   align-items: center;
   height: 100%;
   list-style: none;
 }
 
-.night-mode-toggle-wrapper{
+.night-mode-toggle-wrapper {
   display: flex;
   align-items: center;
   height: 100%;
   list-style: none;
   gap: 10px;
 }
-.navbar-item:hover{
-  background-color: rgb(252, 243, 232);
+.navbar-item:hover {
+  background-color: rgba(239, 250, 253, 0.45);
 }
 
-.navbar-item a{
+.navbar-item a {
   text-decoration: none;
   color: inherit;
 }
 
-.logo-wrapper{
+.logo-wrapper {
   padding: 20px;
   font-weight: bold;
   font-size: large;
   cursor: pointer;
 }
 
-.logo-wrapper a{
+.logo-wrapper a {
   text-decoration: none;
   color: inherit;
 }
 
-.toggle-btn{
+.toggle-btn {
   margin-right: 10px;
   background-color: #b7b9ba;
   border: 1px solid #aaa;
   border-radius: 100px;
   width: 50px;
   height: 25px;
-  transition: background-color 0.1s ease, border-color 0.2s ease;
+  transition:
+    background-color 0.1s ease,
+    border-color 0.2s ease;
   cursor: pointer;
   box-shadow: 1px 1px 10px black;
   position: relative;
-
 }
 
-.toggle-btn .thumb{
+.toggle-btn .thumb {
   height: 20px;
   width: 20px;
   background-color: #fff;
@@ -80,19 +82,18 @@
   position: absolute;
   left: 3px;
   top: 50%;
-  transform: translateY(-50%)
+  transform: translateY(-50%);
 }
 
-.toggle-btn p{
+.toggle-btn p {
   position: relative;
   transform: translateX(-50px);
 }
 
-
-.toggle-btn.toggled{
+.toggle-btn.toggled {
   background-color: green;
 }
 
-.toggle-btn.toggled .thumb{
+.toggle-btn.toggled .thumb {
   left: calc(25px);
 }

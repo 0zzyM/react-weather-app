@@ -212,7 +212,7 @@ const FiveDayWeather = () => {
       </div>
 
       {/* Daily Averages */}
-      <div className="extraResults">
+      <div className="extraResults-daily">
         {dailyAvg &&
           Object.entries(dailyAvg).map(([date, avg]) => (
             <div className="dailyResult" key={date}>

@@ -1,11 +1,21 @@
-.main-wrapper{
+.page-content {
+  min-height: calc(100vh - 80px); /* adjust if navbar height differs */
   display: flex;
-  flex-direction: column;
-  width:100% ;
+  justify-content: center; /* horizontal */
+  align-items: center; /* vertical */
+  padding: 20px;
 }
 
-.weather-comp {
+#mainContainer {
+  width: clamp(320px, 80vw, 1280px);
+  margin: 0 auto;
+}
+
+.main-wrapper {
+  width: 100%;
+}
+
+.weather-wrapper {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
