@@ -1,4 +1,4 @@
-#mainContainer {
+.mainContainer {
   margin: 0 auto;
   padding: 20px;
 
@@ -7,8 +7,8 @@
 
   background: linear-gradient(
     to bottom,
-    rgba(200, 230, 254, 0.05),
-    rgba(143, 191, 242, 0.25)
+    rgba(200, 230, 254, 0.35),
+    rgba(143, 191, 242, 0.55)
   );
 
   backdrop-filter: blur(25px);
@@ -25,6 +25,14 @@
   align-items: center;
   gap: clamp(20px, 4vw, 40px);
 }
+
+.mainContainer.night {
+  background: linear-gradient(
+    to bottom,
+    rgba(200, 230, 254, 0.05),
+    rgba(143, 191, 242, 0.25)
+  );
+}
 .searchContainer {
   flex-wrap: wrap;
   display: flex;
@@ -35,7 +43,7 @@
 }
 
 .searchContainer input {
-  background: rgba(255, 255, 255, 0.25); /* Transparent white */
+  background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(15px); /* Frosted glass effect */
   -webkit-backdrop-filter: blur(15px); /* Safari support */
 
@@ -50,13 +58,17 @@
   text-align: center;
 }
 
+.searchContainer input {
+  background: rgba(255, 255, 255, 1);
+}
+
 .searchContainer input:focus {
   box-shadow: 0 8px 32px rgba(0, 150, 200, 1);
   outline: none;
 }
 
 .searchIcon {
-  background: rgba(255, 255, 255, 0.25); /* Transparent white */
+  background: rgba(255, 255, 255, 1);
   backdrop-filter: blur(15px); /* Frosted glass effect */
   -webkit-backdrop-filter: blur(15px); /* Safari support */
 

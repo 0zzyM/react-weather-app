@@ -16,9 +16,43 @@ const Weather = () => {
       console.error(error);
     }
   };
+  const fetchCityFromCoords = async (lat, lon) => {
+    try {
+      const res = await fetch(
+        `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${import.meta.env.VITE_APP_ID}`,
+      );
+      const data = await res.json();
 
+      if (data.length > 0) {
+        const cityName = data[0].name;
+        search(cityName);
+      } else {
+        search("Valletta");
+      }
+    } catch (err) {
+      console.error(err);
+      search("Valletta");
+    }
+  };
+
+  //tries to get user location if can't manage sets valletta as default
   useEffect(() => {
-    search("Valletta");
+    console.log();
+    if (!navigator.geolocation) {
+      search("Valletta");
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+
+        fetchCityFromCoords(latitude, longitude);
+      },
+      (error) => {
+        console.log("User denied location");
+        search("Valletta"); // fallback
+      },
+    );
   }, []);
 
   const [city, setCity] = useState("");
@@ -28,7 +62,13 @@ const Weather = () => {
     <div className="weather-wrapper">
       <div id="mainContainer">
         {/*<h1>Weather</h1>*/}
-        <div className="searchContainer">
+        <form
+          className="searchContainer"
+          onSubmit={(e) => {
+            e.preventDefault(); // ← THIS is required
+            search(city);
+          }}
+        >
           <input
             type="text"
             placeholder="Enter a City"
@@ -41,7 +81,7 @@ const Weather = () => {
             className="searchIcon"
             onClick={() => search(city)}
           />
-        </div>
+        </form>
         {weather.name !== undefined && (
           <div className="resultContainer">
             <img

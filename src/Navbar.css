@@ -1,10 +1,14 @@
 .header-wrap {
   min-height: 60px;
 
-  background-color: rgba(127, 220, 251, 0.45);
+  background-color: rgba(127, 220, 251, 0.25);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.header-wrap.night {
+  background-color: rgb(0, 24, 34);
 }
 
 .navbar {
@@ -14,6 +18,7 @@
   justify-content: space-between;
   gap: 50px;
 }
+
 .logo-wrapper {
   display: flex;
   align-items: center;
@@ -57,7 +62,7 @@
   color: inherit;
 }
 
-.toggle-btn {
+.night-mode-toggle-btn {
   margin-right: 10px;
   background-color: #b7b9ba;
   border: 1px solid #aaa;
@@ -72,7 +77,7 @@
   position: relative;
 }
 
-.toggle-btn .thumb {
+.night-mode-toggle-btn .thumb {
   height: 20px;
   width: 20px;
   background-color: #fff;
@@ -85,15 +90,15 @@
   transform: translateY(-50%);
 }
 
-.toggle-btn p {
+.nitght-mode-toggle-btn p {
   position: relative;
   transform: translateX(-50px);
 }
 
-.toggle-btn.toggled {
+.night-mode-toggle-btn.toggled {
   background-color: green;
 }
 
-.toggle-btn.toggled .thumb {
+.night-mode-toggle-btn.toggled .thumb {
   left: calc(25px);
 }

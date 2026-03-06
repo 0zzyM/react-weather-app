@@ -1,19 +1,22 @@
 # 🌤 React Weather App
 
-A modern weather application built with **React + Vite** that allows users to search for any city and view real-time weather data along with a multi-day forecast.
+A modern weather application built with **React + Vite** that allows users to search for any city and view real-time weather data along with a structured 5-day forecast.
 
 ---
 
 ## 🚀 Project Overview
 
-This app fetches live weather data using the **OpenWeatherMap API** and presents it in a clean, responsive UI with a glassmorphism-inspired design and refined layout structure.
+This app fetches live weather data using the **OpenWeatherMap API** and presents it in a clean, responsive UI with improved data processing and optimized forecast logic.
 
 Users can:
 
-- Search for any city worldwide
-- View current weather conditions
-- View a 5-day forecast (3-hour interval data grouped per day)
-- See additional weather details like humidity, pressure, and wind
+- 🌍 Automatically detect location via geolocation
+- 🔎 Search for any city worldwide
+- 🌡 View current weather conditions
+- 📅 View a structured 5-day forecast (grouped from 3-hour interval data)
+- 🌙 Toggle dark mode
+
+If geolocation is denied, the app falls back to **Valletta** as the default city.
 
 ---
 
@@ -31,6 +34,7 @@ Users can:
 - OpenWeatherMap API
   - Current Weather Endpoint
   - 5-Day / 3-Hour Forecast Endpoint
+  - Reverse Geocoding API
 
 ---
 
@@ -40,25 +44,50 @@ Users can:
 
 - Temperature (°C)
 - Weather description & icon
-- Feels Like temperature
-- Min / Max temperature
 - Humidity
-- Atmospheric pressure
 - Wind speed
 
-### 📅 Forecast
+---
+
+### 📅 Forecast Improvements
 
 - Multi-day forecast cards
+- Data grouped by **local timezone**
+- Forecast limited to the first **5 valid days**
+- Calculates:
+  - Average daily temperature
+  - Most frequent weather icon per day
 - Responsive wrapping layout
 - Auto-centered card alignment
 
+---
+
+### ⚡ Performance Optimizations
+
+- Parallel API calls using `Promise.all()`
+  - Fetches current weather and forecast simultaneously
+- Reduced loading time
+- Optimized data transformation logic
+- Refactored icon calculation algorithm
+
+---
+
+### 🌍 Smart Location Handling
+
+- Automatically detects user location on app load
+- Uses reverse geocoding to determine city name
+- Falls back to **Valletta** if location access fails
+
+---
+
 ### 🎨 UI / UX Improvements
 
-- Glassmorphism styling
+- Glassmorphism-inspired design
+- Smooth dark mode implementation
 - Soft shadows & depth
-- Improved spacing and layout organization
+- Improved spacing & layout structure
 - Responsive design (mobile → desktop)
-- Refined card structure and alignment
+- Refined forecast card structure
 
 ---
 
@@ -76,19 +105,21 @@ Forecast cards wrap naturally and remain centered across screen sizes.
 
 ## 📂 Architecture
 
-### Frontend Handles
+### Frontend Responsibilities
 
 - UI rendering
 - Search input & interactions
-- Fetching API data
+- API data fetching
 - State management with hooks
 - Conditional rendering (loading & error states)
 
-### API Handles
+### Data Processing
 
-- Current weather data retrieval
-- Forecast data retrieval
-- JSON response formatting
+- Group forecast data by local date
+- Limit results to 5 days
+- Compute:
+  - Daily averages
+  - Most frequent weather icon
 
 ---
 
@@ -102,35 +133,34 @@ Forecast cards wrap naturally and remain centered across screen sizes.
 
 ## 🧪 Development Status
 
-| Area                 | Status       |
-| -------------------- | ------------ |
-| UI / Layout          | ✅ Stable    |
-| Current Weather API  | ✅ Working   |
-| Forecast Integration | 🟡 Improving |
-| Error Handling       | 🟡 Basic     |
-| Dark Mode            | 🔵 Planned   |
+| Area                 | Status         |
+| -------------------- | -------------- |
+| UI / Layout          | ✅ Stable      |
+| Current Weather API  | ✅ Working     |
+| Forecast Integration | ✅ Optimized   |
+| Timezone Handling    | ✅ Fixed       |
+| Error Handling       | 🟡 Basic       |
+| Dark Mode            | ✅ Implemented |
 
 ---
 
 ## 🛣 Planned Improvements
 
-- 🌙 Dark Mode
-- Improved 5-day forecast grouping logic
-- Autocomplete / typeahead search
-- Dynamic backgrounds based on weather conditions
-- Loading spinners
-- Enhanced error states
-- Search history persistence
+- 🔍 Autocomplete / typeahead search
+- 📊 Better error UI feedback
+- 🎨 Dynamic backgrounds based on weather conditions
+- 💾 Search history persistence
+- ⚡ Further performance improvements
+- 📈 Temperature trend charts
 
 ---
 
 ## 💡 What I Learned
 
-- Structuring a React application properly
-- Managing API calls with `useState` and `useEffect`
-- Handling asynchronous data safely
-- Responsive layout strategies (Grid vs Flexbox)
-- UI refinement and spacing systems
-- Debugging layout behavior across breakpoints
-
----
+- Advanced React state management
+- Async API handling with parallel requests
+- Timezone-based date transformation
+- Data grouping and aggregation
+- Performance optimization techniques
+- Clean code refactoring
+- Debugging real-world API inconsistencies

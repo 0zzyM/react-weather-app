@@ -6,13 +6,20 @@
   padding: 20px;
 }
 
-#mainContainer {
+.mainContainer {
   width: clamp(320px, 80vw, 1280px);
   margin: 0 auto;
 }
 
 .main-wrapper {
   width: 100%;
+  background-color: white;
+  color: black;
+}
+
+.main-wrapper.night {
+  background-color: black;
+  color: white;
 }
 
 .weather-wrapper {
