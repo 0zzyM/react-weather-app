@@ -1,166 +1,84 @@
-# 🌤 React Weather App
+# React Weather App
 
-A modern weather application built with **React + Vite** that allows users to search for any city and view real-time weather data along with a structured 5-day forecast.
+Weather app built with React, TypeScript and Vite. Uses the OpenWeatherMap API for current conditions and 5-day forecasts.
 
----
-
-## 🚀 Project Overview
-
-This app fetches live weather data using the **OpenWeatherMap API** and presents it in a clean, responsive UI with improved data processing and optimized forecast logic.
-
-Users can:
-
-- 🌍 Automatically detect location via geolocation
-- 🔎 Search for any city worldwide
-- 🌡 View current weather conditions
-- 📅 View a structured 5-day forecast (grouped from 3-hour interval data)
-- 🌙 Toggle dark mode
-
-If geolocation is denied, the app falls back to **Valletta** as the default city.
+Live: https://ozzymdev.vercel.app
 
 ---
 
-## 🧰 Tech Stack
+## Features
 
-### Frontend
+- Auto-detects location on load via geolocation (falls back to Valletta if denied)
+- Search any city
+- Current weather — temprature, feels like, humidity, wind speed
+- 5-day forecast grouped by local timezone
+- Skeleton loading states
+- Night mode toggle
 
-- React (Functional Components & Hooks)
-- Vite (Development & Build Tool)
-- CSS (Custom styling & responsive design)
-- Lucide React (Icons)
+### In Progress
 
-### API
-
-- OpenWeatherMap API
-  - Current Weather Endpoint
-  - 5-Day / 3-Hour Forecast Endpoint
-  - Reverse Geocoding API
+- Skeleton loading states
 
 ---
 
-## ✨ Features
+## Stack
 
-### 🌡 Current Weather
-
-- Temperature (°C)
-- Weather description & icon
-- Humidity
-- Wind speed
+- React + Vite + TypeScript
+- React Router
+- OpenWeatherMap API (current weather, forecast, reverse geocoding)
 
 ---
 
-### 📅 Forecast Improvements
+## Project structure
 
-- Multi-day forecast cards
-- Data grouped by **local timezone**
-- Forecast limited to the first **5 valid days**
-- Calculates:
-  - Average daily temperature
-  - Most frequent weather icon per day
-- Responsive wrapping layout
-- Auto-centered card alignment
-
----
-
-### ⚡ Performance Optimizations
-
-- Parallel API calls using `Promise.all()`
-  - Fetches current weather and forecast simultaneously
-- Reduced loading time
-- Optimized data transformation logic
-- Refactored icon calculation algorithm
+```
+src/
+├── Components/
+│   ├── Navbar/
+│   ├── Weather/
+│   └── Forecast/
+├── types/
+│   └── WeatherTypes.ts
+└── App.tsx
+```
 
 ---
 
-### 🌍 Smart Location Handling
+## Planned
 
-- Automatically detects user location on app load
-- Uses reverse geocoding to determine city name
-- Falls back to **Valletta** if location access fails
-
----
-
-### 🎨 UI / UX Improvements
-
-- Glassmorphism-inspired design
-- Smooth dark mode implementation
-- Soft shadows & depth
-- Improved spacing & layout structure
-- Responsive design (mobile → desktop)
-- Refined forecast card structure
+- Autocomplete search
+- Dynamic backgrounds per weather condition
+- Search history
+- Temperature trend chart
 
 ---
 
-## 📱 Responsive Design
+## What I learned
 
-The layout adapts smoothly to:
-
-- Desktop screens
-- Tablets
-- Mobile devices
-
-Forecast cards wrap naturally and remain centered across screen sizes.
+- Typing third-party API responses — not all fields are guaranteed, optional fields matter
+- Status enums (`idle / loading / success / error`) over boolean flags — cleaner state that can't get out of sync
+- Timezone-aware date grouping from raw UTC timestamps
+- Lifting state up vs Context — at 2 levels deep props are fine
+- TypeScript migrations are easier leaf-first — start from components with no children, work up to the root
 
 ---
 
-## 📂 Architecture
+## Setup
 
-### Frontend Responsibilities
+```bash
+npm install
+```
 
-- UI rendering
-- Search input & interactions
-- API data fetching
-- State management with hooks
-- Conditional rendering (loading & error states)
+Create a `.env` file in the root:
 
-### Data Processing
+```
+VITE_APP_ID=your_openweathermap_api_key
+```
 
-- Group forecast data by local date
-- Limit results to 5 days
-- Compute:
-  - Daily averages
-  - Most frequent weather icon
+Get your key at openweathermap.org — free tier is enough.
 
----
-
-## 🔐 Security
-
-- API key stored in `.env`
-- `.env` excluded via `.gitignore`
-- No sensitive data exposed in the repository
+```bash
+npm run dev
+```
 
 ---
-
-## 🧪 Development Status
-
-| Area                 | Status         |
-| -------------------- | -------------- |
-| UI / Layout          | ✅ Stable      |
-| Current Weather API  | ✅ Working     |
-| Forecast Integration | ✅ Optimized   |
-| Timezone Handling    | ✅ Fixed       |
-| Error Handling       | 🟡 Basic       |
-| Dark Mode            | ✅ Implemented |
-
----
-
-## 🛣 Planned Improvements
-
-- 🔍 Autocomplete / typeahead search
-- 📊 Better error UI feedback
-- 🎨 Dynamic backgrounds based on weather conditions
-- 💾 Search history persistence
-- ⚡ Further performance improvements
-- 📈 Temperature trend charts
-
----
-
-## 💡 What I Learned
-
-- Advanced React state management
-- Async API handling with parallel requests
-- Timezone-based date transformation
-- Data grouping and aggregation
-- Performance optimization techniques
-- Clean code refactoring
-- Debugging real-world API inconsistencies
