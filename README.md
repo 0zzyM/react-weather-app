@@ -55,11 +55,10 @@ src/
 
 ## What I learned
 
-- Typing third-party API responses — not all fields are guaranteed, optional fields matter
+- Typing third-party API responses
 - Status enums (`idle / loading / success / error`) over boolean flags — cleaner state that can't get out of sync
 - Timezone-aware date grouping from raw UTC timestamps
-- Lifting state up vs Context — at 2 levels deep props are fine
-- TypeScript migrations are easier leaf-first — start from components with no children, work up to the root
+- TypeScript migration
 
 ---
 
